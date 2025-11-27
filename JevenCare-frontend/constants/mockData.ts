@@ -1,0 +1,203 @@
+import { Doctor, Medicine, Pharmacy } from "@/types";
+
+export const mockDoctors: Doctor[] = [
+  {
+    id: "1",
+    name: "Dr. Rajesh Kumar",
+    email: "rajesh@jevencare.com",
+    phone: "9876543210",
+    role: "doctor",
+    language: "Hindi, English",
+    specialization: "General Physician",
+    experience: 15,
+    qualifications: ["MBBS", "MD"],
+    languages: ["Hindi", "English", "Punjabi"],
+    availableSlots: [
+      { day: "Monday", startTime: "09:00", endTime: "17:00" },
+      { day: "Wednesday", startTime: "09:00", endTime: "17:00" },
+    ],
+    consultationFee: 300,
+    profileImage: "https://i.pravatar.cc/150?img=12",
+  },
+  {
+    id: "2",
+    name: "Dr. Priya Sharma",
+    email: "priya@jevencare.com",
+    phone: "9876543211",
+    role: "doctor",
+    language: "Hindi, English",
+    specialization: "Pediatrician",
+    experience: 10,
+    qualifications: ["MBBS", "MD Pediatrics"],
+    languages: ["Hindi", "English", "Marathi"],
+    availableSlots: [
+      { day: "Tuesday", startTime: "10:00", endTime: "18:00" },
+      { day: "Thursday", startTime: "10:00", endTime: "18:00" },
+    ],
+    consultationFee: 400,
+    profileImage: "https://i.pravatar.cc/150?img=5",
+  },
+  {
+    id: "3",
+    name: "Dr. Amit Patel",
+    email: "amit@jevencare.com",
+    phone: "9876543212",
+    role: "doctor",
+    language: "Gujarati, Hindi",
+    specialization: "Cardiologist",
+    experience: 20,
+    qualifications: ["MBBS", "MD", "DM Cardiology"],
+    languages: ["Gujarati", "Hindi", "English"],
+    availableSlots: [
+      { day: "Monday", startTime: "11:00", endTime: "16:00" },
+      { day: "Friday", startTime: "11:00", endTime: "16:00" },
+    ],
+    consultationFee: 800,
+    profileImage: "https://i.pravatar.cc/150?img=8",
+  },
+];
+
+export const specializations = [
+  { id: "1", name: "General Physician", icon: "medical" },
+  { id: "2", name: "Pediatrician", icon: "baby" },
+  { id: "3", name: "Cardiologist", icon: "heart" },
+  { id: "4", name: "Dermatologist", icon: "body" },
+  { id: "5", name: "Orthopedic", icon: "fitness" },
+  { id: "6", name: "Gynecologist", icon: "woman" },
+];
+
+import { HealthRecord } from "@/types";
+
+export const mockHealthRecords: HealthRecord[] = [
+  {
+    id: "1",
+    patientId: "1",
+    date: "2025-11-20",
+    type: "prescription",
+    title: "Fever & Cold Treatment",
+    notes: "Prescribed antibiotics and rest for 5 days",
+    doctorId: "1",
+    fileUrl: "https://example.com/prescription1.pdf",
+  },
+  {
+    id: "2",
+    patientId: "1",
+    date: "2025-11-15",
+    type: "lab_report",
+    title: "Complete Blood Count (CBC)",
+    notes: "All values within normal range",
+    doctorId: "2",
+    fileUrl: "https://example.com/lab-report1.pdf",
+  },
+  {
+    id: "3",
+    patientId: "1",
+    date: "2025-11-10",
+    type: "visit_summary",
+    title: "General Checkup",
+    notes: "Routine checkup. Patient is healthy. Advised regular exercise.",
+    doctorId: "1",
+  },
+  {
+    id: "4",
+    patientId: "1",
+    date: "2025-10-25",
+    type: "lab_report",
+    title: "Blood Sugar Test",
+    notes: "Fasting: 95 mg/dL, Post-meal: 140 mg/dL - Normal",
+    doctorId: "3",
+    fileUrl: "https://example.com/blood-sugar.pdf",
+  },
+];
+
+export const mockMedicines: Medicine[] = [
+  {
+    id: "1",
+    name: "Paracetamol 500mg",
+    genericName: "Acetaminophen",
+    price: 20,
+    stock: 150,
+    pharmacyId: "1",
+    description: "Pain reliever and fever reducer",
+    manufacturer: "Sun Pharma",
+  },
+  {
+    id: "2",
+    name: "Amoxicillin 250mg",
+    genericName: "Amoxicillin",
+    price: 85,
+    stock: 75,
+    pharmacyId: "1",
+    description: "Antibiotic for bacterial infections",
+    manufacturer: "Cipla",
+  },
+  {
+    id: "3",
+    name: "Cetirizine 10mg",
+    genericName: "Cetirizine Hydrochloride",
+    price: 15,
+    stock: 200,
+    pharmacyId: "2",
+    description: "Antihistamine for allergies",
+    manufacturer: "Dr. Reddy's",
+  },
+  {
+    id: "4",
+    name: "Ibuprofen 400mg",
+    genericName: "Ibuprofen",
+    price: 30,
+    stock: 0,
+    pharmacyId: "2",
+    description: "Anti-inflammatory and pain reliever",
+    manufacturer: "Lupin",
+  },
+  {
+    id: "5",
+    name: "Azithromycin 500mg",
+    genericName: "Azithromycin",
+    price: 120,
+    stock: 45,
+    pharmacyId: "3",
+    description: "Antibiotic for respiratory infections",
+    manufacturer: "Alembic Pharma",
+  },
+];
+
+export const mockPharmacies: Pharmacy[] = [
+  {
+    id: "1",
+    name: "MedPlus Pharmacy",
+    address: "Main Market Road, Village Center",
+    phone: "9876543210",
+    location: {
+      latitude: 28.6139,
+      longitude: 77.209,
+    },
+    medicines: mockMedicines.filter((m) => m.pharmacyId === "1"),
+    isOpen: true,
+  },
+  {
+    id: "2",
+    name: "Apollo Pharmacy",
+    address: "Near Bus Stand, Sector 12",
+    phone: "9876543211",
+    location: {
+      latitude: 28.6149,
+      longitude: 77.21,
+    },
+    medicines: mockMedicines.filter((m) => m.pharmacyId === "2"),
+    isOpen: true,
+  },
+  {
+    id: "3",
+    name: "Local Medical Store",
+    address: "Hospital Road, Block A",
+    phone: "9876543212",
+    location: {
+      latitude: 28.6129,
+      longitude: 77.208,
+    },
+    medicines: mockMedicines.filter((m) => m.pharmacyId === "3"),
+    isOpen: false,
+  },
+];
