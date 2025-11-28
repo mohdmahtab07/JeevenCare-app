@@ -66,7 +66,6 @@ export default function HomeScreen() {
   const fetchDoctors = async () => {
     const result = await doctorService.getDoctors({ page: 1, limit: 5 });
     if (result.success) {
-      console.log("Doctors data:", result.data.data); // Debug log
       setDoctors(result.data.data || []);
     }
   };
@@ -88,7 +87,7 @@ export default function HomeScreen() {
     return (
       <View className="flex-1 items-center justify-center bg-gray-50">
         <ActivityIndicator size="large" color={Colors.primary} />
-        <Text className="text-gray-600 mt-4">Loading...</Text>
+        <Text className="text-gray-600 mt-4">Loading....</Text>
       </View>
     );
   }
